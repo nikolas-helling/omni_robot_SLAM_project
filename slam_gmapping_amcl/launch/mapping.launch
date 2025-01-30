@@ -1,0 +1,22 @@
+<launch>
+
+    <!-- Parameters -->
+    <param name="/use_sim_time" value="true"/>
+    <arg name="map_name" default="final_map"/>
+
+    <!-- Laser merger configuration (IRA laser tools) -->
+    <include file="$(find slam_gmapping_amcl)/launch/laser_merge.launch"/>
+
+    <!-- Custom nodes -->
+    <node pkg="slam_gmapping_amcl" type="mapping" name="mapping_node" output="screen"/>
+
+    <!-- Gmapping Configuration -->
+    <include file="$(find slam_gmapping_amcl)/launch/gmapping.launch.xml"/>
+
+    <!-- Save the map to the \maps folder with user-specified map name -->
+    <!-- <node pkg="map_server" type="map_saver" name="map_saver" args="-d $(find slam_gmapping_amcl)/maps/$(arg map_name)"/> -->
+
+    <!-- Rviz Gmapping Visualization -->
+    <!-- <node name="rviz2" pkg="rviz" type="rviz" args="-d $(find slam_gmapping_amcl)/rviz/mapping.rviz"/> -->
+
+</launch>

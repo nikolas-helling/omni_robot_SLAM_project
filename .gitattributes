@@ -1,0 +1,12 @@
+# Handle line endings for all text files
+* text=auto
+
+# Force specific line endings for certain types of files (shell, batch, markdown)
+*.sh   eol=lf     
+*.bat  eol=crlf  
+*.md   text       
+
+# Prevent Git from messing with binary files
+*.jpg  -text     
+*.png  -text
+*.pgm  -text

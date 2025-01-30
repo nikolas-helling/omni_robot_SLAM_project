@@ -1,0 +1,3 @@
+float64 currentX
+float64 currentY
+float64 currentTheta

@@ -1,0 +1,21 @@
+# Git
+.git
+.gitignore
+
+# ROS build files and logs
+build/
+devel/
+install/
+log/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Local config and editor files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+temp/
+cache/

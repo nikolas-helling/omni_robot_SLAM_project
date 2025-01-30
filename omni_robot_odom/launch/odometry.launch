@@ -1,0 +1,38 @@
+<launch>
+
+    <!-- Set use_sim_time to true -->
+    <param name="use_sim_time" value="true" />
+
+    <!-- Initial Pose Parameters -->
+    <param name="init_pose/position/x" value="0.0"/>
+    <param name="init_pose/position/y" value="0.0"/>
+    <param name="init_pose/position/z" value="0.0"/>
+    <param name="init_pose/orientation/x" value="0.0"/>
+    <param name="init_pose/orientation/y" value="0.0"/>
+    <param name="init_pose/orientation/z" value="0.0"/>
+    <param name="init_pose/orientation/w" value="1.0"/>
+
+    <!-- Robot urdf model settings -->
+    <param name="robot_description" command="cat $(find omni_robot_odom)/urdf/omni_robot.urdf" />
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 1 map odom " /> -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="odom_to_static_base_link" args="0 0 0 0 0 0 1 odom base_link" /> -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_wheel_1" args="0.1 0.0845 -0.07 0.7071 0 0 0.7071 base_link wheel_1" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_wheel_2" args="-0.1 0.0845 -0.07 0.7071 0 0 0.7071 base_link wheel_2" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_wheel_3" args="0.1 -0.0845 -0.07 0.7071 0 0 0.7071 base_link wheel_3" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_wheel_4" args="-0.1 -0.0845 -0.07 0.7071 0 0 0.7071 base_link wheel_4" />
+
+    <!-- Start rviz and plotjuggler for visualization-->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find omni_robot_odom)/cfg/odom.rviz" required="true" />
+    <!-- <node name="plotjuggler" pkg="plotjuggler" type="plotjuggler" args="layout $(find omni_robot_odom)/cfg/odom.pj" required="true"> 
+    <param name="use_ros_topics" value="true"/>
+    </node>  -->
+
+    <!-- Starting all nodes -->
+    <node pkg="omni_robot_odom" type="initialization" name="initialization_node" output="screen"/>
+    <node pkg="omni_robot_odom" type="path_publisher" name="path_publisher_node" output="screen"/>
+    <node pkg="omni_robot_odom" type="kinematics" name="kinematics_node" output="screen"/>
+    <node pkg="omni_robot_odom" type="wheelcontrol" name="wheelcontrol_node" output="screen"/>
+    <node pkg="omni_robot_odom" type="odometry" name="odometry_node" output="screen"/>
+
+</launch>
+

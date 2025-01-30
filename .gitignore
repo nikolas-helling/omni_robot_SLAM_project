@@ -1,0 +1,27 @@
+# ROS-specific
+build/
+devel/
+install/
+log/
+.catkin_workspace
+
+# CMake and build artifacts
+*.o
+*.a
+*.so
+*.out
+*.log
+
+# Python byte code
+__pycache__/
+*.py[cod]
+
+# IDE/editor and local
+local_files/
+.vscode/
+.idea/
+*.swp
+
+# Docker-related
+docker-compose.override.yml
+*.env

@@ -1,0 +1,85 @@
+<robot name="omni_robot">
+  <!-- Base Link Robot Body -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.169 0.25"/> 
+        </geometry>
+      <material name="blue">
+        <color rgba="0.0 0.0 1.0 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Wheel Links -->
+  <link name="wheel_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.07" radius="0.07"/> 
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="wheel_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.07" radius="0.07"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="wheel_3">
+    <visual>
+      <geometry>
+        <cylinder length="0.07" radius="0.07"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="wheel_4">
+    <visual>
+      <geometry>
+        <cylinder length="0.07" radius="0.07"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Joints -->
+  <joint name="wheel_1_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_1"/>
+    <origin xyz="0.1 0.0845 -0.07" rpy="0 1.5708 0"/>
+  </joint>
+
+  <joint name="wheel_2_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_2"/>
+    <origin xyz="-0.1 0.0845 -0.07" rpy="0 1.5708 0"/>
+  </joint>
+
+  <joint name="wheel_3_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_3"/>
+    <origin xyz="0.1 -0.0845 -0.07" rpy="0 1.5708 0"/>
+  </joint>
+
+  <joint name="wheel_4_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_4"/>
+    <origin xyz="-0.1 -0.0845 -0.07" rpy="0 1.5708 0"/>
+  </joint>
+
+</robot>
